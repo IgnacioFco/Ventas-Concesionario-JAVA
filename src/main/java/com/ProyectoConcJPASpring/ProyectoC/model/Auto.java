@@ -1,7 +1,5 @@
 package com.ProyectoConcJPASpring.ProyectoC.model;
 
-import com.ProyectoConcJPASpring.ProyectoC.DTO.AutoDTO.AutoDTOBuilder;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;

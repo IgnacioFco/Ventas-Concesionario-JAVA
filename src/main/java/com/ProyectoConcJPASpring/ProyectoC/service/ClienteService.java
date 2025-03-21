@@ -1,7 +1,7 @@
 package com.ProyectoConcJPASpring.ProyectoC.service;
 
-import java.time.LocalDate;
-import java.time.Period;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +17,23 @@ public class ClienteService {
     private ClienteRepository clienteRepository;
 
     public ClienteDTO obtenerClientePorId(Long id) {
-        Cliente cliente = clienteRepository.findById(id).orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
-        int edad = Period.between(cliente.getFechaNacimiento(), LocalDate.now()).getYears();
+        return clienteRepository.findById(id)
+                .map(this::convertirADTO)
+                .orElse(null);
+    }
 
-        return new ClienteDTO(cliente.getNombre(), cliente.getApellido(), edad);
+    public List<ClienteDTO> obtenerTodosLosClientes() {
+        return clienteRepository.findAll().stream()
+                .map(this::convertirADTO)
+                .collect(Collectors.toList());
+    }
+
+    private ClienteDTO convertirADTO(Cliente cliente) {
+        ClienteDTO dto = new ClienteDTO();
+        dto.setId(cliente.getId());
+        dto.setNombre(cliente.getNombre());
+        dto.setApellido(cliente.getApellido());
+        // Mapear otros campos según sea necesario
+        return dto;
     }
 }
