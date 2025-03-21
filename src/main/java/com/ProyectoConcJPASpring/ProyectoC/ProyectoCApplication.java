@@ -32,6 +32,8 @@ public class ProyectoCApplication implements CommandLineRunner{
 	Concesionario conUno = new Concesionario();
 	conUno.setNombre("Consecionario F1");
 
+	concesionarioService.save(conUno);
+
 	Auto au1 = new Auto();
 	au1.setMarca("Toyota");
 	au1.setModelo("Cross");
@@ -45,6 +47,10 @@ public class ProyectoCApplication implements CommandLineRunner{
 		au2.setAnio(2022);
 		au2.setPrecio(28000);
 		au2.setConcesionario(null);
+
+		autoService.save(au1);
+	autoService.save(au2);
+		
 
 	}
 }

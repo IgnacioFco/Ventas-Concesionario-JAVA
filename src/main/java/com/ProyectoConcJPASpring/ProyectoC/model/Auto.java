@@ -1,5 +1,7 @@
 package com.ProyectoConcJPASpring.ProyectoC.model;
 
+import com.ProyectoConcJPASpring.ProyectoC.DTO.AutoDTO.AutoDTOBuilder;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -8,12 +10,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Data
 @Table(name = "AUTO")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Auto {
 
 @Id
@@ -32,4 +40,5 @@ public class Auto {
    @ManyToOne(fetch = FetchType.EAGER)
    @JoinColumn(name = "CONCESIONARIO_ID")
    private Concesionario concesionario;
+
 }
