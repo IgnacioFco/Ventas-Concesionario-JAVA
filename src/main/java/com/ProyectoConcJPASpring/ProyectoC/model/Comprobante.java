@@ -1,11 +1,18 @@
 package com.ProyectoConcJPASpring.ProyectoC.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.ProyectoConcJPASpring.ProyectoC.DTO.ComprobanteDTO;
+
 @Entity
 @Table(name = "comprobante")
+@Data
+@NoArgsConstructor
 public class Comprobante {
 
     @Id
@@ -23,6 +30,9 @@ public class Comprobante {
     private LocalDateTime fecha;
     private double precioTotal;
     private int cantidadTotal;
+    
+    @Transient
+    private String mensajeError;
 
     public Long getId() {
         return id;
@@ -70,5 +80,23 @@ public class Comprobante {
 
     public void setCantidadTotal(int cantidadTotal) {
         this.cantidadTotal = cantidadTotal;
+    }
+    
+    public String getMensajeError() {
+        return mensajeError;
+    }
+
+    public void setMensajeError(String mensajeError) {
+        this.mensajeError = mensajeError;
+    }
+    
+    public ComprobanteDTO toResponse() {
+        ComprobanteDTO response = new ComprobanteDTO();
+        response.setId(this.id);
+        response.setFecha(this.fecha);
+        response.setPrecioTotal(this.precioTotal);
+        response.setCantidadTotal(this.cantidadTotal);
+        response.setMensajeError(this.mensajeError);
+        return response;
     }
 }
