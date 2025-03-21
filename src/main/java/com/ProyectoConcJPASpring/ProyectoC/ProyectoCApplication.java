@@ -39,6 +39,7 @@ public class ProyectoCApplication implements CommandLineRunner{
 	au1.setModelo("Cross");
 	au1.setAnio(2024);
 	au1.setPrecio(42500);
+	au1.setStock(8);
 	au1.setConcesionario(conUno);
 
 	Auto au2 = new Auto();
@@ -46,7 +47,8 @@ public class ProyectoCApplication implements CommandLineRunner{
 		au2.setModelo("Yaris");
 		au2.setAnio(2022);
 		au2.setPrecio(28000);
-		au2.setConcesionario(null);
+		au2.setStock(20);
+		au2.setConcesionario(conUno);
 
 		autoService.save(au1);
 	autoService.save(au2);

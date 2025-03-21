@@ -5,21 +5,26 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "cliente")
+@Data
+@NoArgsConstructor
 public class Cliente {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;  // Campo "id"
+        private Long id;
     
         private String nombre;
         private String apellido;
         private LocalDate fechaNacimiento;
     
-        public Long getId() {  // Método getId()
+        public Long getId() {
             return id;
         }
     
