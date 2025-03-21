@@ -1,6 +1,6 @@
 package com.ProyectoConcJPASpring.ProyectoC.controller;
 
-import com.ProyectoConcJPASpring.ProyectoC.ComprobanteRequest.ComprobanteRequest;
+import com.ProyectoConcJPASpring.ProyectoC.DTO.ComprobanteDTO;
 import com.ProyectoConcJPASpring.ProyectoC.service.ComprobanteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,8 +14,8 @@ public class ComprobanteController {
     private ComprobanteService comprobanteService;
 
     @PostMapping
-    public ResponseEntity<?> crearComprobante(@RequestBody ComprobanteRequest request) {
-        return comprobanteService.crearComprobante(request);
+    public ResponseEntity<ComprobanteDTO> crearComprobante(@RequestBody ComprobanteDTO request) {
+        return comprobanteService.crearComprobanteDTOP(request);
     }
 
     @GetMapping("/{id}")
