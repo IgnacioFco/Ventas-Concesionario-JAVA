@@ -16,7 +16,6 @@ public class WorldClockResponse {
     @JsonProperty("timeZoneName")
     private String timeZoneName;
     
-    // Getters y Setters
     public String getCurrentDateTime() {
         return currentDateTime;
     }
