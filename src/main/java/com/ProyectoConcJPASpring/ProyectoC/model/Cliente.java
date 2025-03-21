@@ -11,23 +11,43 @@ import java.time.LocalDate;
 @Table(name = "cliente")
 public class Cliente {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String nombre;
-    private String apellido;
-    private LocalDate fechaNacimiento;
-    public LocalDate getFechaNacimiento() {
-            return fechaNacimiento;
-    }
-    public String getNombre() {
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;  // Campo "id"
+    
+        private String nombre;
+        private String apellido;
+        private LocalDate fechaNacimiento;
+    
+        public Long getId() {  // Método getId()
+            return id;
+        }
+    
+        public void setId(Long id) {
+            this.id = id;
+        }
+    
+        public String getNombre() {
             return nombre;
-      
-    }
-    public String getApellido() {
+        }
+    
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
+        }
+    
+        public String getApellido() {
             return apellido;
-       
+        }
+    
+        public void setApellido(String apellido) {
+            this.apellido = apellido;
+        }
+    
+        public LocalDate getFechaNacimiento() {
+            return fechaNacimiento;
+        }
+    
+        public void setFechaNacimiento(LocalDate fechaNacimiento) {
+            this.fechaNacimiento = fechaNacimiento;
+        }
     }
-
-}
