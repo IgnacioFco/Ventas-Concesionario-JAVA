@@ -33,7 +33,7 @@ public class ClienteService {
         dto.setId(cliente.getId());
         dto.setNombre(cliente.getNombre());
         dto.setApellido(cliente.getApellido());
-        // Mapear otros campos según sea necesario
         return dto;
     }
+
 }
